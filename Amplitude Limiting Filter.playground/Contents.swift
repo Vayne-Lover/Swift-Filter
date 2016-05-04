@@ -8,6 +8,18 @@ func getTestValueInt()->Int{
     return Int(arc4random_uniform(255))
 }
 //Setting End
+//Double Extension Start
+extension Double{//If you want to format you can use the extension.
+    func format(f:String) -> String {
+        return NSString(format: "%\(f)f",self) as String
+    }
+}
+//Double Extension End
+//Extension Example Start
+//print(Double(3.1415).format(".2"))//There is the example to format Double
+//Extension Example End
+
+//Amplitude Limiting Filter
 //Filter1 Start
 let A=UInt16(10)
 var Value1:UInt16=128//You should chose middle of the value
@@ -25,5 +37,5 @@ func filter1(inout Value1:UInt16)->Double{
 }
 //Filter1 End
 //Filter1 Test Start
-print(filter1(&Value1))
+print(filter1(&Value1).format(".2"))
 //Filter1 Test End
